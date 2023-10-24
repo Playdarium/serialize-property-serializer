@@ -1,8 +1,8 @@
 using System;
 using System.Linq;
 using NUnit.Framework;
-using Package.Serializer.Runtime;
-using Package.Serializer.Utils;
+using Playdarium.Serializer.Runtime.Fluent;
+using Playdarium.Serializer.Utils;
 using UnityEngine;
 
 namespace Tests.Editor

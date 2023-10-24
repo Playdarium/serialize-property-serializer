@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: PackageManifestConfig
   m_EditorClassIdentifier: 
   packageSourcePaths:
-  - Assets/Package/Serializer
+  - Assets/Playdarium/Serializer
   packageIgnorePaths: []
   packageDestinationPath: Release
   legacyPackageDestinationPath: 
   packageName: com.playdarium.serialize-property-serializer
   displayName: Serialize Property Serializer
-  packageVersion: 1.0.0
+  packageVersion: 1.1.0
   unityVersion: 2021.3
   description: 
   category: 
