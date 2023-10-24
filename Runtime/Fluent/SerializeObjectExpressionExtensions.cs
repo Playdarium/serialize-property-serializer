@@ -201,6 +201,14 @@ namespace Playdarium.Serializer.Runtime.Fluent
 			where TProperty : Object
 			=> serialized.Component(GetPropertyName(expression), modify);
 
+		public static ISerializedFluent<T> Property<T, TProperty>(
+			this ISerializedFluent<T> serialized,
+			Expression<Func<T, TProperty>> expression,
+			Action<ISerializedFluent<TProperty>> modify
+		)
+			where T : Object
+			=> serialized.Property(GetPropertyName(expression), modify);
+
 		public static string GetPropertyName<T, TProperty>(this Expression<Func<T, TProperty>> expression)
 		{
 			if (expression.Body is MemberExpression memberExpression)
