@@ -5,7 +5,7 @@ Using the native Unity Package Manager introduced in 2017.2, you can add this li
 on how to reference it.
 
 ```
-"com.playdarium.serialize-property-serializer": "https://gitlab.com/pd-packages/serialize-property-serializer.git#upm-1.1.0"
+"com.playdarium.serialize-property-serializer": "https://gitlab.com/pd-packages/serialize-property-serializer.git#upm-1.1.1"
 ```
 
 # Usage
