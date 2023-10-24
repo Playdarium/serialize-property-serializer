@@ -1,23 +1,23 @@
 using System;
 using System.Collections;
 using System.Linq.Expressions;
-using Package.Serializer.Runtime;
+using Playdarium.Serializer.Runtime.Fluent;
 using Object = UnityEngine.Object;
 
-namespace Package.Serializer.Utils
+namespace Playdarium.Serializer.Utils
 {
 	public static class SerializedObjectFluentExtensions
 	{
-		public static SerializeObjectExtensions.SerializedObjectFluent<T> Set<T>(
-			this SerializeObjectExtensions.SerializedObjectFluent<T> so,
+		public static ISerializedFluent<T> Set<T>(
+			this ISerializedFluent<T> so,
 			Expression<Func<T, IEnumerable>> expression,
 			IEnumerable obj
 		)
 			where T : Object
 			=> so.Set(expression.GetPropertyName(), obj);
 
-		public static SerializeObjectExtensions.SerializedObjectFluent<T> Set<T, TProperty>(
-			this SerializeObjectExtensions.SerializedObjectFluent<T> so,
+		public static ISerializedFluent<T> Set<T, TProperty>(
+			this ISerializedFluent<T> so,
 			Expression<Func<T, TProperty>> expression,
 			TProperty obj
 		)
@@ -30,14 +30,14 @@ namespace Package.Serializer.Utils
 			return so.Set(propertyName, obj);
 		}
 
-		public static SerializeObjectExtensions.SerializedObjectFluent<TSerialized> Set<TSerialized, TSerializable>(
-			this SerializeObjectExtensions.SerializedObjectFluent<TSerialized> so,
+		public static ISerializedFluent<TSerialized> Set<TSerialized, TSerializable>(
+			this ISerializedFluent<TSerialized> so,
 			string config,
 			TSerializable obj
 		)
 			where TSerialized : Object
 		{
-			var property = so.Get(config);
+			var property = so.GetProperty(config);
 			if (obj is IEnumerable enumerable)
 				SerializedPropertySerializer.SerializeArrayProperty(enumerable, property);
 			else

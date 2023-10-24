@@ -1,9 +1,9 @@
 using System;
 using System.Collections;
-using Package.Serializer.Utils;
+using Playdarium.Serializer.Utils;
 using UnityEditor;
 
-namespace Package.Serializer.Serializers
+namespace Playdarium.Serializer.Serializers
 {
 	public class ArrayOrListPropertySerializer : IPropertySerializer
 	{

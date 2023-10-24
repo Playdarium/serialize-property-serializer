@@ -1,7 +1,7 @@
 using System;
 using UnityEditor;
 
-namespace Package.Serializer.Serializers {
+namespace Playdarium.Serializer.Serializers {
 	public class BooleanPropertySerializer : IPropertySerializer
 	{
 		public bool CanSerialize(Type type) => type == typeof(bool);

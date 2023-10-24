@@ -3,12 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Package.Serializer.Serializers;
-using Package.Serializer.Utils;
+using Playdarium.Serializer.Serializers;
+using Playdarium.Serializer.Utils;
 using UnityEditor;
 using UnityEngine;
 
-namespace Package.Serializer
+namespace Playdarium.Serializer
 {
 	public static class SerializedPropertySerializer
 	{

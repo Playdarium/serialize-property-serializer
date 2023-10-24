@@ -1,6 +1,6 @@
 using System;
 
-namespace Package.Serializer.Utils
+namespace Playdarium.Serializer.Utils
 {
 	public static class ReflectionExtensions
 	{

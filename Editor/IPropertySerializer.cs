@@ -1,7 +1,7 @@
 using System;
 using UnityEditor;
 
-namespace Package.Serializer
+namespace Playdarium.Serializer
 {
 	public interface IPropertySerializer
 	{
