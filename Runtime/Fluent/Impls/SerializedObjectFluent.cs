@@ -22,6 +22,12 @@ namespace Playdarium.Serializer.Runtime.Fluent.Impls
 
 		public override SerializedProperty GetProperty(string propertyName)
 			=> _serializedObject.FindProperty(propertyName);
+
+		public override void Apply()
+		{
+			base.Apply();
+			_serializedObject.ApplyModifiedProperties();
+		}
 	}
 }
 #endif

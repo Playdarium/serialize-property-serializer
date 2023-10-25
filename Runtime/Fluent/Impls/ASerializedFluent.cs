@@ -238,7 +238,7 @@ namespace Playdarium.Serializer.Runtime.Fluent.Impls
 			return this;
 		}
 
-		public void Apply()
+		public virtual void Apply()
 		{
 			foreach (var modification in _modifications)
 				modification();
