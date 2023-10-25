@@ -44,6 +44,7 @@ namespace Playdarium.Serializer
 			new FloatPropertySerializer(),
 			new EnumPropertySerializer(),
 			new ArrayOrListPropertySerializer(),
+			new ObjectPropertySerializer(),
 			new ClassOrStructPropertySerializer()
 		};
 
