@@ -21,9 +21,6 @@ namespace Playdarium.Serializer.Utils
 		)
 		{
 			var propertyName = expression.GetPropertyName();
-			if (obj is IEnumerable enumerable)
-				return serialized.Set(propertyName, enumerable);
-
 			return serialized.Set(propertyName, obj);
 		}
 
@@ -34,11 +31,7 @@ namespace Playdarium.Serializer.Utils
 		)
 		{
 			var property = serialized.GetProperty(config);
-			if (obj is IEnumerable enumerable)
-				SerializedPropertySerializer.SerializeArrayProperty(enumerable, property);
-			else
-				SerializedPropertySerializer.SerializeClassType(obj, property);
-
+			SerializedPropertySerializer.SerializeValueProperty(obj, property);
 			return serialized;
 		}
 	}

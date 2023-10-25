@@ -40,13 +40,22 @@ namespace Tests.Editor
 			_database.Modify().Set(f => f.dataArray, values).Apply();
 			Assert.True(values.SequenceEqual(_database.dataArray), "values.SequenceEqual(_database.dataArray)");
 		}
-		
+
 		[Test]
 		public void ArraySerializeInPrivateField()
 		{
 			var values = Enumerable.Repeat(new Data { value = 457 }, 10).ToList();
 			_database.Modify().Set("dataArrayPrivate", values).Apply();
-			Assert.True(values.SequenceEqual(_database.DataArrayPrivate), "values.SequenceEqual(_database.DataArrayPrivate)");
+			Assert.True(values.SequenceEqual(_database.DataArrayPrivate),
+				"values.SequenceEqual(_database.DataArrayPrivate)");
+		}
+
+		[Test]
+		public void UnityObjectSerializePublicField()
+		{
+			var instance = ScriptableObject.CreateInstance<UnityObject>();
+			_database.Modify().Set(f => f.objectSingle, instance).Apply();
+			Assert.AreEqual(instance, _database.objectSingle);
 		}
 
 		[Serializable]
@@ -69,6 +78,10 @@ namespace Tests.Editor
 			public override string ToString() => $"{nameof(value)}: {value}";
 		}
 
+		public class UnityObject : ScriptableObject
+		{
+		}
+
 		public class Database : ScriptableObject
 		{
 			public Data dataSingle;
@@ -79,6 +92,15 @@ namespace Tests.Editor
 
 			[SerializeField] private Data[] dataArrayPrivate;
 			public Data[] DataArrayPrivate => dataArrayPrivate;
+
+			public UnityObject objectSingle;
+			public UnityObject[] objectArray;
+
+			[SerializeField] private UnityObject objectSinglePrivate;
+			public UnityObject ObjectSinglePrivate => objectSinglePrivate;
+
+			[SerializeField] private UnityObject[] objectArrayPrivate;
+			public UnityObject[] ObjectArrayPrivate => objectArrayPrivate;
 		}
 	}
 }
