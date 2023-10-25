@@ -54,7 +54,7 @@ namespace Playdarium.Serializer.Runtime.Fluent
 			Action<ISerializedFluent<TObject>> modify
 		);
 
-		T Apply();
+		void Apply();
 	}
 }
 #endif

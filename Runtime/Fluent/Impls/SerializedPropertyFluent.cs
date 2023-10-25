@@ -14,8 +14,6 @@ namespace Playdarium.Serializer.Runtime.Fluent.Impls
 
 		public override SerializedProperty GetProperty(string propertyName)
 			=> _serializedProperty.FindPropertyRelative(propertyName);
-
-		protected override T GetModified() => (T)_serializedProperty.managedReferenceValue;
 	}
 }
 #endif
