@@ -238,15 +238,11 @@ namespace Playdarium.Serializer.Runtime.Fluent.Impls
 			return this;
 		}
 
-		public T Apply()
+		public void Apply()
 		{
 			foreach (var modification in _modifications)
 				modification();
-			
-			return GetModified();
 		}
-
-		protected abstract T GetModified();
 	}
 }
 #endif

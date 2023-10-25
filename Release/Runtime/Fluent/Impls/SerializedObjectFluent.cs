@@ -1,12 +1,11 @@
 #if UNITY_EDITOR
 using UnityEditor;
-using Object = UnityEngine.Object;
+using UnityEngine;
 
 namespace Playdarium.Serializer.Runtime.Fluent.Impls
 {
 	public class SerializedObjectFluent<T> : ASerializedFluent<T> where T : Object
 	{
-		
 		private readonly SerializedObject _serializedObject;
 		private readonly T _obj;
 
@@ -21,17 +20,8 @@ namespace Playdarium.Serializer.Runtime.Fluent.Impls
 			_serializedObject = serializedObject;
 		}
 
-		public override SerializedProperty GetProperty(string propertyName) 
+		public override SerializedProperty GetProperty(string propertyName)
 			=> _serializedObject.FindProperty(propertyName);
-
-		protected override T GetModified()
-		{
-			_serializedObject.ApplyModifiedProperties();
-			if (_obj != null)
-				return _obj;
-
-			return (T)_serializedObject.targetObject;
-		}
 	}
 }
 #endif
