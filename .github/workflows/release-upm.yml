@@ -1,0 +1,38 @@
+name: Create Tag on Main Branch Update
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'Release/package.json'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Get version from package.json
+        id: version
+        run: |
+          echo "::set-output name=version::$(grep -o '"version":"[^"]*"' ./Release/package.json | awk -F'"' '{print $4}')"
+        shell: bash
+
+      - name: Subtree split
+        run: |
+          git subtree split --prefix=Release --annotate="[upm] " -b upm
+          git push origin upm
+        shell: bash
+
+      - name: Create Tag
+        run: |
+          git tag -a ${{ steps.version.outputs.version }} -m "Release ${{ steps.version.outputs.version }}"
+        shell: bash
+
+      - name: Push Tag
+        run: |
+          git push origin ${{ steps.version.outputs.version }}
+        shell: bash
