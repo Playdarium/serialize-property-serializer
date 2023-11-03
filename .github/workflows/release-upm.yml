@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Set credentials
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
