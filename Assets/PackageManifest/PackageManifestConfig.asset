@@ -19,7 +19,7 @@ MonoBehaviour:
   legacyPackageDestinationPath: 
   packageName: com.playdarium.serialize-property-serializer
   displayName: Serialize Property Serializer
-  packageVersion: 1.2.2
+  packageVersion: 1.2.3
   unityVersion: 2021.3
   description: 
   category: 
