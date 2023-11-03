@@ -7,9 +7,6 @@ on:
 #    paths:
 #      - 'Release/package.json'
 
-env:
-  GIT_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -29,13 +26,19 @@ jobs:
           git subtree split --prefix=Release --annotate="[upm] " -b upm
           git push origin upm
         shell: bash
+        env:
+          GIT_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Tag
         run: |
           git tag -a ${{ steps.version.outputs.version }} -m "Release ${{ steps.version.outputs.version }}"
         shell: bash
+        env:
+          GIT_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Push Tag
         run: |
           git push origin ${{ steps.version.outputs.version }}
         shell: bash
+        env:
+          GIT_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
