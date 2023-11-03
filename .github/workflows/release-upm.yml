@@ -13,12 +13,12 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Get version from package.json
         id: version
         run: |
-          echo "::set-output name=version::$(grep -o '"version":"[^"]*"' ./Release/package.json | awk -F'"' '{print $4}')"
+          echo "version=$(grep -o '"version":"[^"]*"' ./Release/package.json | awk -F'"' '{print $4}')" >> $GITHUB_OUTPUT
         shell: bash
 
       - name: Subtree split
