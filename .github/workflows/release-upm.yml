@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Get version from package.json
         id: version
@@ -26,19 +28,13 @@ jobs:
           git subtree split --prefix=Release --annotate="[upm] " -b upm
           git push origin upm
         shell: bash
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Tag
         run: |
           git tag -a ${{ steps.version.outputs.version }} -m "Release ${{ steps.version.outputs.version }}"
         shell: bash
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Push Tag
         run: |
           git push origin ${{ steps.version.outputs.version }}
         shell: bash
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
