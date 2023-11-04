@@ -31,7 +31,6 @@ jobs:
         shell: bash
 
       - name: Copy package files from Release folder
-        id: version
         run: |
           rm -rf ./upm-package/*
           cp ./repository/Release/* ./upm-package
@@ -43,7 +42,7 @@ jobs:
         with:
           author_name: Github Action Bot
           message: 'Auto-updated package contents'
-          cwd: './Release'
+          cwd: './upm-package'
           new_branch: 'upm'
           tag: v${{ steps.version.outputs.version }}
           push: true
