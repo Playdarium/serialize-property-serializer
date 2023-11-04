@@ -12,13 +12,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout branch main
         uses: actions/checkout@v4
+        with:
+          ref: 'main'
+          path: './repository'
+
+      - name: Checkout branch upm
+        uses: actions/checkout@v4
+        with:
+          ref: 'upm'
+          path: './upm-package'
 
       - name: Get version from package.json
         id: version
         run: |
-          echo "version=$(grep -o '"version":"[^"]*"' ./Release/package.json | awk -F'"' '{print $4}')" >> $GITHUB_OUTPUT
+          echo "version=$(grep -o '"version":"[^"]*"' ./repository/Release/package.json | awk -F'"' '{print $4}')" >> $GITHUB_OUTPUT
+        shell: bash
+
+      - name: Copy package files from Release folder
+        id: version
+        run: |
+          rm -rf ./upm-package/*
+          cp ./repository/Release/* ./upm-package
         shell: bash
       
       # Check in Unity Package on Release branch
@@ -28,6 +44,6 @@ jobs:
           author_name: Github Action Bot
           message: 'Auto-updated package contents'
           cwd: './Release'
-          new_branch: upm/${{ steps.version.outputs.version }}
+          new_branch: 'upm'
           tag: v${{ steps.version.outputs.version }}
           push: true
