@@ -33,7 +33,7 @@ jobs:
       - name: Copy package files from Release folder
         run: |
           rm -rf ./upm-package/*
-          cp ./repository/Release/* ./upm-package
+          cp -r ./repository/Release/* ./upm-package
         shell: bash
       
       # Check in Unity Package on Release branch
