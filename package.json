@@ -1,1 +1,28 @@
-{"name":"com.playdarium.serialize-property-serializer","displayName":"Serialize Property Serializer","version":"1.2.4","unity":"2021.3","description":"","keywords":["serializer","editor"],"category":"","author":{	"name":"Playdarium",	"email":"playdarium@gamil.com",	"url":"https://playdarium.com"}}
+{
+  "name": "com.playdarium.serialize-property-serializer",
+  "version": "1.2.5",
+  "displayName": "Serialize Property Serializer",
+  "description": "Make you work with SerializeObject and SerializeProperty easier",
+  "category": "Utility",
+  "unity": "2021.3",
+  "homepage": "https://github.co/",
+  "documentationUrl": "https://github.co//README.md",
+  "changelogUrl": "https://github.co//CHANGELOG.md",
+  "licensesUrl": "https://github.co//LICENSE",
+  "keywords": [
+    "serializer",
+    "editor"
+  ],
+  "author": {
+    "name": "Playdarium",
+    "email": "playdarium@gamil.com",
+    "url": "https://playdarium.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.co/.git"
+  },
+  "bugs": {
+    "url": "https://github.co//issues"
+  }
+}
