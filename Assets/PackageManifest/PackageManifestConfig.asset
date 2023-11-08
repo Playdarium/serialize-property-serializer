@@ -12,17 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a29f67b488b4458983fd973bbda8c8fa, type: 3}
   m_Name: PackageManifestConfig
   m_EditorClassIdentifier: 
-  packageSourcePaths:
-  - Assets/Playdarium/Serializer
+  homepage: https://github.com/
+  sourcePath: Assets/Playdarium/Serializer
+  documentationPath: Documentation~
+  readmePath: README.md
+  changelogPath: CHANGELOG.md
+  licensePath: LICENSE
   packageIgnorePaths: []
   packageDestinationPath: Release
   legacyPackageDestinationPath: 
   packageName: com.playdarium.serialize-property-serializer
   displayName: Serialize Property Serializer
-  packageVersion: 1.2.4
+  packageVersion: 1.2.5
   unityVersion: 2021.3
-  description: 
-  category: 
+  description: Make you work with SerializeObject and SerializeProperty easier
+  category: Utility
   author:
     name: Playdarium
     email: playdarium@gamil.com
@@ -31,6 +35,7 @@ MonoBehaviour:
   - serializer
   - editor
   dependencies: []
+  samples: []
   versionConstantsPath: 
-  versionTemplateGuid: 
+  versionConstantsNamespace: 
   _id: cac1468b-6ac3-46f4-8a30-b3a672183a3a
